@@ -1,6 +1,7 @@
 from role_info import roles
 from card import cards, skills, effects
-from pynput import keyboard
+import sys
+import keyboard
 
 
 def init():
@@ -19,14 +20,15 @@ def init():
         print()
         role_display(len(roles), True)
         print()
-        temp = input('Press any key to go back : ')
-        if temp:
-            homePage()
+        print('Press any key to go back : ')
+        while True:
+            if bool(keyboard.read_key()):
+                homePage()
 
 
 def homePage():
     print()
-    print("please choose mod")
+    print("please choose mode")
     mode = input("(1)cultivate (2)display role\nSelect mode : ")
     if mode == "1":
         cultivate()
@@ -35,25 +37,9 @@ def homePage():
         role_display(len(roles), True)
         print()
         print('Press any key to go back : ')
-
-        key_pressed = False
-
-        def on_press(key):
-            key_pressed = True
-            return key_pressed
-
-        def on_release(key):
-            key_pressed = False
-            if key == keyboard.Key.esc:
-                return False
-            return key_pressed
-
-        with keyboard.Listener(
-                on_press=on_press,
-                on_release=on_release)as listener:
-            listener.join()
-        if key_pressed:
-            homePage()
+        while True:
+            if bool(keyboard.read_key()):
+                homePage()
 
 
 def cultivate():  # 培育

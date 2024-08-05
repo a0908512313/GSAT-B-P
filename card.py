@@ -8,8 +8,12 @@ class card():
 
 
 class effect():
-    def __init__(self, name):
+    def __init__(self, name, dp, art, lan, mem):
         self.name = name
+        self.dp = dp
+        self.art = art
+        self.lan = lan
+        self.mem = mem
 
 
 class skill():
@@ -30,12 +34,3 @@ cards = []  # [0] -> depressure [1] -> science [2] -> society  [3] -> math  [4] 
 
 # effect(name, decrease_pressure, logc, art, lan, mem)
 # skill(name, science, society, math, chinese, english, depressure)
-
-# sample:
-# 【test1】
-
-# 類型:數學卡【情誼條滿時，當次培育回合的數學增加值boost 1.3倍】
-
-# 技能: 抗壓技-在數學考試中，當回合的考試失敗率降低65%
-
-# 介紹: 測試…測試….test1
