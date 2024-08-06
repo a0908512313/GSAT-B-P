@@ -1,6 +1,5 @@
 from role_info import roles
-from card import cards, skills, effects
-import sys
+from card_info import cards
 import keyboard
 
 
@@ -140,6 +139,7 @@ def role_display(n, all=False):  # 觀看擁有角色
             print(f'dePressure : {roles[i].dePressure}')
             print(f'group      : {roles[i].group}')
             print(f'subject    : {roles[i].subject}')
+            print()
     else:
         print(f'name       : {roles[n - 1].name}')
         print('introduce  :')

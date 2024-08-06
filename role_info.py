@@ -1,6 +1,5 @@
 # 擷取history
-import role_story  # temp
-
+from role_plot import role_introduce
 # 定義角色數值<class>
 
 
@@ -28,28 +27,19 @@ class Role:
     #            f'Pressure: {self.pressure}, DePressure: {self.dePressure}, '
     #            f'Group: {self.group}, Subject: {self.subject}')
 
-# 各角色自我介紹
-
-
-# 如月 花子
-introduce_1 = ""
-# 蘇我 美月
-introduce_2 = ""
-# 廖 優奈
-introduce_3 = ""
-# 住野 由美子
-introduce_4 = ""
-# 真鍋 香繪
-introduce_5 = "金髮辣妹,對理科,特別是化學,抱有強烈興致,個性十分外向,社交牛逼,喜歡傳XX決,與廖 優奈經常熬夜爬牌位。好甜食,螞蟻人；對社會科毫無關心,本人說「社會科不都是常識嗎?」,但其實只是對於背東西很不在行。"
-# 小柳 詩
-introduce_6 = "身高159.6的銀白長髮的日本女孩,個性活潑、溫柔,是個十足的戲精,有不把苦說出口的壞毛病。喜歡吃甜食,特別是抹茶厥餅,喜歡音樂,幾乎什麼都聽,甚至是如月花子愛聽的至鬱戲音樂。有極高的音樂、演藝天賦,但本人似乎沒意識到這點。"
 
 # 輸出值,各角色初始的數值
 roles = [
-    Role("如月 花子", 0, 0, 0, 0, 0, 0, "none", "none", introduce_1),
-    Role("蘇我 美月", 0, 0, 0, 0, 0, 0, "none", "none", introduce_2),
-    Role("廖 優柰", 0, 0, 0, 0, 0, 0, "none", "none", introduce_3),
-    Role("住野 由美子", 0, 0, 0, 0, 0, 0, "none", "none", introduce_4),
-    Role("真鍋 香繪", 130, 57, 70, 71, 66, 0, "science", "sc", introduce_5),
-    Role("小柳 詩", 45, 80, 55, 70, 71, 120, "social", "en", introduce_6)
+    Role("如月 花子", 60, 50, 130, 75, 72, 83,
+         "science", "math", role_introduce['如月 花子']),
+    Role("蘇我 美月", 54, 125, 45, 80, 76, 90,
+         "social", "social", role_introduce['蘇我 美月']),
+    Role("廖 優柰", 57, 65, 61, 75, 62, 150,
+         "science", "cs", role_introduce['廖 優奈']),
+    Role("住野 由美子", 45, 87, 38, 160, 69, 80,
+         "social", "cs", role_introduce['住野 由美子']),
+    Role("真鍋 香繪", 130, 57, 70, 71, 66, 0,
+         "science", "sc", role_introduce['真鍋 香繪']),
+    Role("小柳 詩", 45, 80, 55, 70, 71, 120,
+         "social", "en", role_introduce['小柳 詩'])
 ]
