@@ -1,5 +1,6 @@
 from role_info import roles
-from card_info import cards
+from card_info import *
+from card_calcu import *
 import keyboard
 
 
@@ -45,20 +46,8 @@ def cultivate():  # 培育
     role = choose_role()
     print()
     card = choose_card()
-    # start cultivate ---------------------------
-    # do -> increase  rest -> decrease
-
-    # skill section -----------------------------
-    skill = cards[card[0]][card[1]]
-    # card[0] to category card[1] to which card
-    # temporary change attribute
-    # isCultive = True
-    # roles[role - 1].sc += skill.sc
-    # roles[role - 1].so += skill.so
-    # roles[role - 1].ma += skill.ma
-    # roles[role - 1].cs += skill.cs
-    # roles[role - 1].en += skill.en
-    # roles[role - 1].dp += skill.dp
+    # root attributes changes
+    card_effect(roles[role - 1], cards[card[0] - 1][card[1] - 1].effect)
 
 
 def choose_role():  # 選擇角色
@@ -78,14 +67,21 @@ def choose_role():  # 選擇角色
         if mode == 1:
             role_display(name_sel, False)
             print()
-            if int(input("(1) to comfirm select\n(2) to reselect role\nEnter number to select : ")) == 1:
+            temp = int(
+                input("(1) to comfirm select\n(2) to reselect role\nEnter number to select : "))
+            if temp == 1:
                 print()
                 return name_sel
+            elif temp == 2:
+                print()
+                print('RESELECTE ROLE')
+                print()
+                choose_role()
             else:
                 print()
                 print('! input number out of range !')
                 print('Please enter an available number!!!')
-                choose_role()
+                pass
 
         elif mode == 2:
             return name_sel
@@ -101,27 +97,6 @@ def choose_role():  # 選擇角色
             print('Please enter an available number!!!')
             print()
             choose_role()
-
-
-def choose_card():  # 選擇卡片
-    category = int(input(
-        '(1) Pressure Card\n(2) Exam Card\n(3) Efficient Card\nEnter number to list corresponding category : '))
-    if 1 <= category <= len(cards):
-        card_display(category)  # display category cards
-        card_sel = int(input('enter number to select card : '))
-        if 0 <= card_sel > len[cards[category - 1]]:
-            print()
-            print('! input number out of range !')
-            print('Please enter an available number!!!')
-            print()
-            choose_card()
-        else:
-            return category, card_sel
-    else:
-        print()
-        print('! input number out of range !')
-        print('Please enter an available number!!!')
-        choose_card()
 
 
 def role_display(n, all=False):  # 觀看擁有角色
@@ -155,9 +130,64 @@ def role_display(n, all=False):  # 觀看擁有角色
         print(f'subject    : {roles[n - 1].subject}')
 
 
-def card_display(category):  # 觀看擁有卡片
-    for i in range(len(cards[category - 1])):
-        print(f'({i+1}) {cards[category - 1][i].name}')
+def choose_card():  # 選擇卡片
+    category = int(input(
+        '(1) Depressure Card\n(2) Science Card\n(3) Society Card\n(4) Math Card\n(5) Chinese Card(6) English Card\nEnter number to list corresponding category : '))
+    if 1 <= category <= len(cards):
+        card_display(category, None)  # display category cards
+        card_sel = int(input('enter number to select card : '))
+        if 0 <= card_sel > len[cards[category - 1]]:
+            print()
+            print('! input number out of range !')
+            print('Please enter an available number!!!')
+            print()
+            choose_card()
+        else:
+            mode = int(
+                input(f'Current role : {cards[category - 1][card_sel - 1].name}\n(1) to show role detail\n(2) to comfirm selecte\n(3) to reselect role\nEnter to select mode : '))
+        if mode == 1:
+            card_display(category, card_sel)
+            print()
+            temp = int(
+                input("(1) to comfirm select\n(2) to reselect role\nEnter number to select : "))
+            if temp == 1:
+                print()
+                return category, card_sel
+            elif temp == 2:
+                print()
+                print('RESELECTE CARD')
+                print()
+                choose_card()
+            else:
+                print()
+                print('! input number out of range !')
+                print('Please enter an available number!!!')
+                pass
+        elif mode == 2:
+            return category, card_sel
+        elif mode == 3:
+            print()
+            print('RESELECTE CARD')
+            print()
+            choose_role()
+        else:
+            print()
+            print('! input number out of range !')
+            print('Please enter an available number!!!')
+            print()
+            choose_role()
+
+
+def card_display(category, n):  # 觀看擁有卡片
+    if n:
+        temp = cards[category - 1][n - 1]
+        print(f'name      : {temp.name}')
+        print(f'introduce : {temp.intro}')
+        for i in range(len(temp.effect)):
+            print(f'effect {i+1} name : {temp.effect[i].name}')
+    else:
+        for i in range(len(cards[category - 1])):
+            print(f'({i+1}) {cards[category - 1][i].name}')
 
 
 def cultivated_display():  # 觀看歷史培育角色
