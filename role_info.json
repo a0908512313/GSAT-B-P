@@ -1,0 +1,98 @@
+[
+	{
+		"name": "如月 花子",
+		"subject value": {
+			"sc": 60,
+			"so": 50,
+			"ma": 130,
+			"cs": 75,
+			"en": 72,
+			"dp": 83
+		},
+		"group": "science",
+		"subject": "math",
+		"history": {
+			"introduce": "平時是個散發著仙氣的黑長直高冷大姊姊..."
+		}
+	},
+	{
+		"name": "蘇我 美月",
+		"subject value": {
+			"sc": 54,
+			"so": 125,
+			"ma": 45,
+			"cs": 80,
+			"en": 76,
+			"dp": 90
+		},
+		"group": "social",
+		"subject": "social",
+		"history": {
+			"introduce": "日本名家大小姐..."
+		}
+	},
+	{
+		"name": "廖 優奈",
+		"subject value": {
+			"sc": 57,
+			"so": 65,
+			"ma": 61,
+			"cs": 75,
+			"en": 62,
+			"dp": 150
+		},
+		"group": "science",
+		"subject": "cs",
+		"history": {
+			"introduce": "出生自嚴厲單親家庭的台日混血無口少女..."
+		}
+	},
+	{
+		"name": "住野 由美子",
+		"subject value": {
+			"sc": 45,
+			"so": 87,
+			"ma": 38,
+			"cs": 160,
+			"en": 69,
+			"dp": 80
+		},
+		"group": "science",
+		"subject": "cs",
+		"history": {
+			"introduce": "辮髮眼鏡娘、文學少女(腐女)..."
+		}
+	},
+	{
+		"name": "真鍋 香繪",
+		"subject value": {
+			"sc": 130,
+			"so": 57,
+			"ma": 70,
+			"cs": 71,
+			"en": 66,
+			"dp": 0
+		},
+		"group": "science",
+		"subject": "sc",
+		"history": {
+			"introduce": "金髮辣妹,對理科,特別是化學,抱有強烈興致..."
+		}
+	},
+	{
+		"name": "小柳 詩",
+		"subject value": {
+			"sc": 45,
+			"so": 80,
+			"ma": 55,
+			"cs": 70,
+			"en": 71,
+			"dp": 83
+		},
+		"group": "science",
+		"subject": "en",
+		"history": {
+			"introduce": "身高159.6的銀白長髮的日本女孩..."
+		}
+	}
+]
